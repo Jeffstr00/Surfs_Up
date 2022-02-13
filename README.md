@@ -13,13 +13,12 @@ In an attempt to make sure that he doesn't make the same mistake twice, he wants
 ### Retrieving Data
 
 ![June All Temperatures](https://github.com/Jeffstr00/Surfs_Up/blob/main/Resources/june_all_temps.png)
+
 After connecting to the SQLite database, we were able to ask it for all of the June temperatures throughout the years using the following query: `results_jun = session.query(Measurement.date, Measurement.tobs).filter(extract('month',Measurement.date) == 6)`.  (A similar query for December was conducted simply by switching the 6 to 12.)  After using .all() to convert our return to a list, we converted it to a dataframe  using `temp_jun = pd.DataFrame(results_jun, columns=['date','temperature'])`.  From there, a simple .describe() gave us an overall view of the month's temperatures by showing its average, minimum/maximum, and distribution statistics.
 
 ### Interpreting Data
 
-![June Weather](https://github.com/Jeffstr00/Surfs_Up/blob/main/Resources/june_weather.png)
-
-![December Weather](https://github.com/Jeffstr00/Surfs_Up/blob/main/Resources/dec_weather.png)
+![June Weather](https://github.com/Jeffstr00/Surfs_Up/blob/main/Resources/june_weather.png) ![December Weather](https://github.com/Jeffstr00/Surfs_Up/blob/main/Resources/dec_weather.png)
 
 * When comparing the results of June to those of December, the most shocking difference is that there were 1700 temperature counts in June but only 1517 in December, meaning that temperature happens more often in June for some reason.  Just kidding.
 
@@ -27,7 +26,7 @@ After connecting to the SQLite database, we were able to ask it for all of the J
 
 * However, in Oahu, June is not actually THAT much hotter than it is in December.  Whether you're looking at temperatures at the first, second, or third quartile breaks, the difference is only 4°, 4°, and 3° respectively.  In fact, the difference when it comes to maximum temperature is only 2°!  That means that, even in the winter, there will still be plenty of days when it is warm enough for surfing (and hopefully ice cream as well).
 
-* However, there is more temperature variation in December (as evidenced by a standard devation of 3.75 vs 3.26 for June), and most of that variation seems to come at the lower end of the spectrum.  While warmer temperatures only differed by 3-4°, the minimum temperature was 64 vs 56, for a difference of 8° (so roughly double the difference of warmer temperatures).  As a result, there might be some days where, while it might not be too cold to keep people out of the water entirely, you'd certainly expect fewer surfers (and certainly fewer people craving ice cream).
+* However, there is more temperature variation in December (as evidenced by a standard devation of 3.75 vs 3.26 for June), and most of that variation seems to come at the lower end of the spectrum.  While warmer temperatures only differed by 3-4°, the minimum temperature was 64 vs 56, for a difference of 8° (so roughly double the difference of warmer temperatures).  As a result, there might be some days where, while it might not be too cold to keep people out of the water entirely, you'd  expect fewer surfers (and certainly fewer people craving ice cream).
 
 ## Summary
 
